@@ -1,0 +1,92 @@
+@startuml RentaFacil
+class Vehiculo{
+- NumeroPlaca numeroplaca
+- Marca marca
+- Modelo modelo
+- AñoFabricacion añofabricacion
+- PrecioDia preciodia
+}
+class Auto
+class Camioneta{
+- CapacidadCarga capacidadcarga
+}
+class Moto{
+- Cilindrada cilindrada
+}
+class NumeroPlaca
+class Marca
+class AñoFabricacion
+class PrecioDia
+class CapacidadCarga
+class Cilindrada
+class Cliente{
+- Id id
+- Nombre nombre
+- Dni dni
+- NumeroTelefono numerotelefono
+- Alquiler alquiler
+}
+Class Id
+class Nombre
+class Dni
+class NumeroTelefono
+class Alquiler{
+- CodigoAlquiler codigoalquiler
+- FechaInicio fechainicio
+- FechaFinal fechafinal
+- CostoTotal costototal
+- Estado estado
+}
+class CodigoAlquiler
+class FechaInicio
+class FechaFinal
+class CostoTotal
+class Sistema
+class NuevoCliente{
++ RegistrarCliente()
+}
+class NuevoVehiculo{
++ RegistrarVehiculo()
+}
+class Calculadora{
+- PrecioDia preciodia
+- DiaAlquilado diaalquilado
++ MultiplicarPyd(PrecioDia, DiaAlquilado):CostoTotal
+}
+class NuevoAlquiler{
++ RegistrarAlquiler()
+}
+class FinAlquiler{
++ FinalizarAlquiler()
+}
+class DiaAlquilado
+
+class Estado
+Vehiculo "1"--|>"1" Auto
+Vehiculo "1"--|>"1" Camioneta
+Vehiculo "1"--|>"1" Moto
+Vehiculo "1" *--"1" NumeroPlaca
+Vehiculo "1" *--"1" Marca
+Vehiculo "1" *--"1" Modelo
+Vehiculo "1" *--"1" AñoFabricacion
+Cliente "1" *--"1" Nombre
+Cliente "1" *--"1" Dni
+Cliente "1" *--"1" NumeroTelefono
+Cliente "1" *--"1-3" Alquiler
+Vehiculo "1" *--"1" PrecioDia
+Camioneta "1" *--"1" CapacidadCarga
+Moto "1" *--"1" Cilindrada
+Cliente "1" *--"1" Id
+Alquiler "1" *--"1" CodigoAlquiler
+Alquiler "1" *--"1" FechaInicio
+Alquiler "1" *--"1" FechaFinal
+Alquiler "1" *--"1" CostoTotal
+Alquiler "1" *--"1" Estado
+Sistema "1" o-- "1" NuevoAlquiler
+Sistema "1" o-- "1" NuevoCliente
+Sistema "1" o-- "1" NuevoVehiculo
+Sistema "1" o-- "1" FinAlquiler
+Sistema "1" o-- "1" Calculadora
+Calculadora "1"*--"1" DiaAlquilado
+Calculadora "1"*--"1" PrecioDia
+@enduml
